@@ -20,7 +20,6 @@ replace(site_cfg, 'site: "https://shirone.mysqil.com/",', 'site: "https://xiaoba
 replace(site_cfg, 'title: "Shirone",', 'title: "niuniu",')
 replace(site_cfg, 'subtitle: "A Material 3 anime blog",', 'subtitle: "Computer Vision · Deep Learning · AI Agent",')
 replace(site_cfg, 'lang: "en",', 'lang: "zh_CN",')
-replace(site_cfg, '\t\ttitle: "Shirone",', '\t\ttitle: "niuniu",')
 
 text = site_cfg.read_text(encoding="utf-8")
 text = re.sub(
