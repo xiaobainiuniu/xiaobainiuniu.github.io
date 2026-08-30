@@ -1,0 +1,68 @@
+name: Deploy Shirone to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site config
+        uses: actions/checkout@v4
+
+      - name: Checkout Shirone
+        run: git clone --depth 1 https://github.com/LyraVoid/Shirone.git _shirone
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.14.4
+          run_install: false
+
+      - name: Customize site
+        run: |
+          curl -L "https://avatars.githubusercontent.com/u/185180967?v=4" -o _shirone/public/avatar.png
+          python scripts/customize_shirone.py
+
+      - name: Install dependencies
+        working-directory: _shirone
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        working-directory: _shirone
+        run: pnpm build
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _shirone/dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
