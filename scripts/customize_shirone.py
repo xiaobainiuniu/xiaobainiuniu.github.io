@@ -77,6 +77,20 @@ nav_cfg.write_text(nav, encoding="utf-8")
 
 export const projectsData: ProjectItem[] = [
 \t{
+\t\tkey: "deskping",
+\t\ttitle: "DeskPing",
+\t\tsummary: "轻量级 Windows 托盘计时提醒器，支持正计时、倒计时、目标时刻、每日重复与多重到点提醒。",
+\t\tcategory: "desktop",
+\t\tphase: "building",
+\t\ttechnologies: ["C#", ".NET 10", "WinForms"],
+\t\ticon: "material-symbols:timer-outline-rounded",
+\t\tcover: "https://raw.githubusercontent.com/xiaobainiuniu/DeskPing/main/docs/screenshots/countdown.png",
+\t\tcoverAlt: "DeskPing countdown interface",
+\t\tfeatured: true,
+\t\trepository: "https://github.com/xiaobainiuniu/DeskPing",
+\t\tyear: "2026",
+\t},
+\t{
 \t\tkey: "auto-clicker",
 \t\ttitle: "Auto Clicker",
 \t\tsummary: "Windows 连点工具，支持多显示器取点、全局热键、倒计时与后台点击。",
