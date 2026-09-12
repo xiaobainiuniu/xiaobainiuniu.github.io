@@ -92,7 +92,7 @@ ssh tencent
 第四，把 IP、端口、用户名和密钥路径全部封装进：
 
 ```text
-C:\Users\liu\.ssh\config
+C:\Users\<本地用户名>\.ssh\config
 ```
 
 以后只需要：
@@ -393,8 +393,8 @@ Ed25519 私钥本身很强
 生成后得到：
 
 ```text
-C:\Users\liu\.ssh\tencent_cloud_ed25519
-C:\Users\liu\.ssh\tencent_cloud_ed25519.pub
+C:\Users\<本地用户名>\.ssh\tencent_cloud_ed25519
+C:\Users\<本地用户名>\.ssh\tencent_cloud_ed25519.pub
 ```
 
 其中：
@@ -488,7 +488,7 @@ ssh-add $env:USERPROFILE\.ssh\tencent_cloud_ed25519
 成功后会看到类似：
 
 ```text
-Identity added: C:\Users\liu\.ssh\tencent_cloud_ed25519
+Identity added: C:\Users\<本地用户名>\.ssh\tencent_cloud_ed25519
 ```
 
 检查：
@@ -522,7 +522,7 @@ notepad $env:USERPROFILE\.ssh\config
 我的文件位置就是：
 
 ```text
-C:\Users\liu\.ssh\config
+C:\Users\<本地用户名>\.ssh\config
 ```
 
 在原有配置最下面加入：
