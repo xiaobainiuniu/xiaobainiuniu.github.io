@@ -21,8 +21,13 @@ jobs:
       - name: Checkout site config
         uses: actions/checkout@v4
 
-      - name: Checkout Shirone
-        run: git clone --depth 1 https://github.com/LyraVoid/Shirone.git _shirone
+      - name: Checkout Shirone (known working version)
+        uses: actions/checkout@v4
+        with:
+          repository: LyraVoid/Shirone
+          ref: b79d301e5e6a8ec897e85b042de43187b571dd5b
+          path: _shirone
+          persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
