@@ -1,5 +1,5 @@
 ---
-title: "腾讯云轻量服务器 SSH 安全配置：密钥登录与 Codex 一键部署"
+title: "腾讯云轻量服务器 SSH 安全配置"
 published: 2026-09-12
 description: "记录一次真实的腾讯云轻量服务器初始化：校园网封锁 22 端口、改用 2222、Ed25519 密钥、Windows ssh-agent、SSH 别名，以及 Codex 通过 ssh tencent 部署代码。"
 tags: ["Tencent Cloud", "SSH", "Windows", "Codex", "Linux", "Deployment"]
